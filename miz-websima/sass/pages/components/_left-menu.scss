@@ -1,0 +1,260 @@
+@use "sass:list";
+@use "sass:math";
+
+$input:9;
+$d0:35;
+$d1:125;
+$offset:10;
+$radius:120px;
+
+$d-diff:calc(($d1) - ($d0));
+$deg-space:calc(($d-diff)/($input - 1) );
+
+
+@keyframes arrow{
+    0%{
+        transform: translateX(-30%) translateY(-80%);
+    }
+    50%{
+        transform: translateX(-30%) translateY(-100%);
+    }
+    100%{
+        transform: translateX(-30%) translateY(-10%);
+    }
+}
+
+
+
+@mixin generate-rotate($num){
+    transform: rotate(1deg * 0.99 * ((($deg-space) * ($num - 1 )  ) + $d0 + 180 + $offset) ) ;
+    opacity: 1;
+    transition: transform  (calc(1s * ($num ) / $input )),  opacity  (calc(1s * ($num ) / $input )) (calc(1s * ($num ) / $input ));
+}
+
+.left-menu{
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 999;
+    .name{
+        transition: .3s;
+    }
+    .menu-content{
+        width: $radius * 2;
+        aspect-ratio: 1;
+        position: relative;
+
+        .before{
+            width: 18px;
+            height: 25px;
+            background-position: center;
+            background-size: contain;
+            transform: rotate(180deg) translateX(20%);
+            position: absolute;
+            left: $radius;
+            top: 0;
+            z-index: 100000;
+            background-image: url(image-asset("arrow1.png"));
+            transition: all 0.5s ease;
+
+            &:hover{
+                box-shadow: 0 0 20px rgb(142, 138, 138);
+                background-color: rgba(142, 138, 138, 0.30);
+            }
+        }
+        .after{
+            width: 18px;
+            height: 25px;
+            background-position: center;
+            background-size: contain;
+            transform: translateX(-30%) translateY(-100%);
+            animation: arrow alternate ease-in-out 2s both infinite;
+            position: absolute;
+            left: $radius;
+            top: $radius * 2;
+            z-index: 100000;
+            background-image: url(image-asset("arrow1.png"));
+            transition: all 0.5s ease;
+
+            &:hover{
+                box-shadow: 0 0 20px rgb(142, 138, 138);
+                background-color: rgba(142, 138, 138, 0.30);
+            }
+        }
+
+        .icon{
+            position: absolute;
+            top:50%;
+            left: 50%;
+            cursor: pointer;
+            transform:translate(-50%, -50%);
+            width: 65px;
+            aspect-ratio: 1 / 1;
+            margin: 5px;
+            opacity: 1 !important;
+            z-index: 1000000000;
+
+            img{
+                box-shadow: 0 0 40px get-color(shadow);
+                transition: all 1s ease;
+            }
+            &:hover img{
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.225);
+            }
+            &:hover~.circle{
+                opacity: 1;
+            }
+
+            &:hover ~ .circle .container {
+                opacity: 1;
+
+                .box{
+                position: relative;
+                    opacity: 0.6;
+                    transition: .5s all linear;
+                    
+                    &:hover::after{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 1;
+                        background: #B7977F;
+                    }
+                }
+                
+                @for $i from 1 through $input { 
+                    &:nth-child(#{$i}){
+                    @include  generate-rotate($i);
+                    }
+                }
+            }
+            &:hover ~ .circle{
+                transform:rotate(0deg ) ; 
+            }
+        }
+
+        .circle {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            transition: 0.3s all linear;
+
+            &:hover{
+                transform:rotate(0deg ) ;
+                opacity: 1;
+            }
+
+            &:hover .container{
+     
+                .box{
+                    opacity: .6;
+                    position: relative;
+                    border-radius: 2px;
+                    &:hover{
+                        opacity: 1;
+                    }
+                    &::after{
+                        transition: .2s ease-in;
+                    }
+                    &:hover::after{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 1;
+                        background: #B7977F;
+                        border-radius: 2px;
+                    }
+
+                    &:hover+.name{
+                        opacity: 1;
+                    }
+                }
+                @for $i from 1 through $input {
+                    &:nth-child(#{$i}){
+
+                        @include  generate-rotate($i);
+                    } 
+                }
+            }
+
+            .container{
+                position: absolute;
+                top: 0;
+                left: $radius;
+                width: 9px;
+                height: $radius * 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                align-items: center;
+                box-sizing: border-box;
+                border: transparent 10px solid;
+                gap: 6px;
+                background: #3109cf00;
+                transform-origin: center center ;
+
+                @for $i from 1 through $input {
+                    &:nth-child(#{$i }){
+                        opacity: 0;
+                        transform:rotate(1deg * (180 + $d0 ) ) ;
+                        transition: all .055s .2s;
+                    }                
+                }
+
+                .box{
+                    width: 9px;
+                    height: 12px;
+                    border-radius: 2px;
+                    opacity: 0;
+                    background: #8C6A58;
+                    transition: 0.2s;
+
+                    &::after{
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        opacity: 0;
+                        background: #8C6A58;
+                        transition: 0.3s all linear;
+                    }
+                }
+
+                @for $i from 1 through $input {
+                    &:nth-child(#{$i }):has(.box:hover)~.name-circle{
+                        .name-container{
+                            &:nth-child(#{$i }){
+                                .name{
+                                    opacity: 1;
+                                }
+                            } 
+                        }
+                    }             
+                }
+            }
+        }
+
+        .name-circle{
+            .name-container {
+                .name{
+                    opacity: 0;
+                    position: absolute;
+                    bottom: 0;
+                    left: $radius;
+                    transform: translateX(-40%)translateY(calc(-1 * $radius / 4));
+                }
+            }
+        }
+    }
+}

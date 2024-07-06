@@ -1,0 +1,15 @@
+@use 'sass:math';
+@import "../../miz/sass/config/index"; 
+@import "../../miz/sass/global-functions"; 
+@import 'service.scss';
+@import 'articles';
+@import 'work-samples';
+@import 'header';
+@import 'left-menu';
+@import 'term-items';
+@import "animation";
+@import "small-circle";
+@import "border-box";
+@import "btn";
+@import "tab";
+@import 'company';

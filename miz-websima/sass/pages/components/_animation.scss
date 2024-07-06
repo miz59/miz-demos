@@ -1,0 +1,81 @@
+pre{
+    margin-top:-60px;
+}
+
+pre + img{
+    transform: translate(0% , -50%);
+}
+
+@mixin loading-text($content-text){
+    $text:str-length("#{$content-text}");
+    @for $i from 1 through $text {
+        & span:nth-child(#{$i}){
+            animation-delay:#{$i * 1s};
+        }
+    }
+}
+
+.gradient-back-name{
+    background-image:linear-gradient(#0E0E0E 0%, #030303 75%);
+    & span{
+        animation-timeline: view(block 41% 1%);
+        animation-name: text-animation-wave;
+        animation-fill-mode: both;
+        animation-duration: 10s;
+        animation-timing-function: linear;
+        -moz-animation: text-animation 0s 0s linear;
+    }
+}
+
+@keyframes text-animation-wave{
+    0%{
+        transform: perspective(10px) rotateX(10deg) translate(-5% , -100%);
+        opacity: 0;
+    }
+    100%{
+        transform: perspective(10px) rotateX(0deg) translate(0% , 0%);
+        opacity: 1;
+    }
+}
+
+@keyframes text-media-animation-opacity{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes text-title-media-animation{
+    0%{
+        transform: translateY(110%);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(10%);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes text-subtitle-media-animation{
+    0%{
+        transform: translateY(110%);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(10%);
+        opacity: 0.5;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}

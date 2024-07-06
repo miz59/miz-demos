@@ -1,0 +1,34 @@
+#company{
+    height: 100vh;
+    background-image: url(image-asset("background-hero.webp"));
+    background-size: cover;
+    background-repeat: no-repeat;
+    button{
+        padding-right: 3rem;
+    }
+    .gallery{
+
+        img{
+            backdrop-filter: blur(3px);
+            border-radius: 3px;
+            transform-origin: right top;
+            transform: rotateX(40deg) rotateY(-15deg);
+            animation-name: imageGallery;
+            animation-duration: 10s;
+            animation-fill-mode: both;
+            animation-timeline: view(block 80% 1%);
+            @media screen and (max-width:get-break-point-value(md)){
+                &:nth-child(12) ~ img{
+                    display: none ;
+                }
+            }
+        }
+        
+    }
+}
+@keyframes imageGallery {
+    to{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+}
+

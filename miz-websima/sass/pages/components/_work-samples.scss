@@ -1,0 +1,94 @@
+#workSamples{
+    height: 100vh;
+
+    .btn{
+        padding-right: 3rem;
+    }
+
+    div.div:has(.flow){
+        &:hover .flow{
+            opacity: 1;
+            transform:translate(0% , -50%) scale(1);
+            transition-delay: 400ms;
+        }
+    }
+
+    .flow{
+        transform: translate(0% , -50%) scale(1.5);
+        transition: 200ms linear;
+    }
+
+    .flow + div:not(:has(img + img)){
+        img{
+            filter: grayscale(1);
+            cursor: pointer;
+            transition: 200ms 0s linear;
+            
+            &:hover{
+                filter: grayscale(0);
+            }
+        }
+    }
+
+    .flow + div{
+        &::after {
+            content: "";
+            width: 100%;
+            height: 1.5px;
+            display: inline-block;
+            transform-origin:center center;
+            background-image: linear-gradient(45deg , transparent , get-color(primary) , transparent);
+            margin-top: -1.6rem;
+            z-index: 1;
+            transition: 300ms 0s linear;
+        }
+
+        &:hover::after{
+            width: 0%;
+        }
+
+        &::before {
+            content: "";
+            width: 0%;
+            height: 1.5px;
+            display: inline-block;
+            transform-origin:center center;
+            background-image: linear-gradient(45deg , transparent , get-color(primary) , transparent);
+            margin-bottom: -1.6rem;
+            z-index: 1;
+            transition: 300ms 0s linear;
+        }
+
+        &:hover::before{
+            width: 100%;
+        }
+    }
+
+    .flow + div:has(img + img){
+        position: relative;
+
+        & img:nth-child(1) {
+            opacity: 1;
+        }
+
+        & img:nth-child(2) {
+            opacity: 1;
+            cursor: pointer;
+            transition: 200ms 0s linear;
+            position: absolute;
+            top: 0;
+            left: 0;
+    
+            &:hover{
+                opacity: 0;
+            }
+        }
+    }
+
+    .box{
+        transform-origin: right center;
+        background-image: url(image-asset("background-hero.webp"));
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
