@@ -1,0 +1,626 @@
+html{
+    scroll-behavior: smooth;
+}
+
+#hero{
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .box-text{
+        .title-creative{
+            @media screen and (max-width:get-break-point-value(md)) {
+                color:get-color(primary-dark);
+            }
+        }
+
+        .text-title-media-animation{
+            @media screen and (max-width:get-break-point-value(md)) {
+                animation: text-title-media-animation 1.5s linear;
+            }
+        }
+
+        .text-subtitle-media-animation{
+            @media screen and (max-width:get-break-point-value(md)) {
+                animation: text-subtitle-media-animation 1.5s linear;
+            }
+        }
+    
+        .subtitle-about-us{
+            line-height:2;
+        }
+    }
+}
+
+#aboutOurBoss{
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // @media screen and (max-width:get-break-point-value(md)) {
+    //     height: 150vh;
+    // }
+
+    // @media screen and (max-width:get-break-point-value(sm)) {
+    //     height: 130vh;
+    // }
+
+    .title-creative{
+        @media screen and (max-width:get-break-point-value(md)) {
+            color:get-color(primary-dark);
+        }
+    }
+
+    .line-height-paragraph{
+        line-height: 30px;
+    }
+
+    .gradient-back-name{
+        @include loading-text("Amirhossein Esmaili ");
+    }
+}
+
+#aboutOurEmployees{
+    height: 100vh;
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    div.container:has(img+img+img){
+        img{
+            width: 9%;
+            @media screen and (max-width:get-break-point-value(xl)) {
+                border-radius: 18px;
+            }
+        }
+    }
+
+    .back-border-box{
+        background-image: linear-gradient(#080808, #1d1d1d);
+    }
+
+    .gradient-back-name{
+        @include loading-text("Amin Esmaili ");
+    }
+
+    .crown{
+        width: 150px;
+        transform: rotate(90deg) translate(50% , 0%);
+    }
+}
+
+
+#tandis{
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    
+    @media screen and (max-width:get-break-point-value(md)) {
+        height: fit-content;
+        div{
+            div{
+                .between-tandis{
+                    margin-bottom: 7%;
+                }
+                .first-tandis{
+                    margin-top: 7%;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:get-break-point-value(md)) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+    }
+    .tandis-md-right{
+        box-shadow: 0px 20px 20px 20px black;
+        width: 250px;
+        &::before{
+            content: "";
+            top: 100px;
+            position: absolute;
+            border: 2px get-color(primary-dark) solid;
+            border-radius: 1000px;
+            width: 349px;
+            height: 297px;
+            z-index: -1;
+
+        }
+    }
+
+    .tandis-right-container{
+        margin-top: -50px;
+
+        @media screen and (max-width:get-break-point-value(md)) {
+            height: 70vh;
+            margin-top: 0px;
+        }
+    .background{
+        width: fit-content;
+
+        .forground{
+            z-index: 3;
+            top: 20%;
+            right: 14%;
+            img{
+                width: 200px;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 120px;
+                }
+            }
+            .bottom-text{
+                background-color: #030303;
+            }
+        }
+        
+                
+        .before{
+            z-index: 2;
+            .tazhib-top{
+                width: 159px;
+                z-index: 1;
+                aspect-ratio: 1;
+                transform: translateX(-6%) translateY(64%) rotate(90deg);
+                background-repeat: no-repeat;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 100px;
+                }
+            }
+
+            .tick-border{
+                width: 350px;
+                aspect-ratio: 1;
+                z-index: 1;
+                object-fit: contain;
+                border-radius: 10000px;
+                border: 15px #191919 solid;
+                background-color: #030303;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 250px;
+                }
+            }
+
+            .tazhib-bottom{
+                width: 200px;
+                aspect-ratio: 1;
+                z-index: 0;
+                transform:translateY(-40%)  ;
+
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 150px;
+                }
+            }
+
+
+        }
+
+        @media screen and (max-width:get-break-point-value(md)) {
+
+            &::before{
+                content: "";
+                top: 89px;
+                left: -19px;
+                position: absolute;
+                border: double 2px transparent;
+            
+                background-clip: content-box, border-box;
+        
+                border-radius: 1000px;
+           
+                aspect-ratio: 1;
+                z-index: auto;
+                width: 281px;
+                aspect-ratio: 1;
+                background-image: linear-gradient(#030303, #030303), 
+                            linear-gradient(to top, transparent, get-color(primary-dark),transparent,);
+                transform:translateY(-2%) translateX(0%);
+            }
+        }
+        }
+        @media screen and (max-width:get-break-point-value(md)) {
+            .tandis-title{
+                color:get-color(primary-dark);
+            }
+
+            .bottom-tandis-row{
+                margin-top: -90px;
+            }
+        }
+    }
+}
+
+#support{
+    min-height: fit-content;
+    height: 100vh;
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (max-width : get-break-point-value(lg)){
+        height: fit-content;
+    }
+    .luxima{
+        position: relative;
+        @media screen and (max-width : get-break-point-value(lg)) {
+            margin-bottom: -10rem;
+            &::after , &::before{
+                width: 70% !important;
+                bottom: 50% !important;
+            }
+        }
+        &::after{
+            content: "";
+            aspect-ratio: 1;
+            position: absolute;
+            background: linear-gradient(to top, transparent, #987360, transparent);
+            border-radius: 50%;
+            width: 90%;
+            bottom: 58%;
+            right: calc(50% - 2px);
+            transform: translateX(50%) translateY(50%);
+        }
+        &::before{
+            content: "";
+            aspect-ratio: 1;
+            position: absolute;
+            background: #000;
+            border-radius: 50%;
+            width: 90%;
+            bottom: 58%;
+            right: 50%;
+            transform: translateX(50%) translateY(50%);
+            z-index: 1;
+
+        }
+    }
+    .crown + div:has(.back-border-box){
+        border-width: 20px;
+        z-index: 1;
+    }
+    .crown{
+        transform: rotate(90deg) translate(38%, 0%);
+        z-index: 1;
+    }
+    .support-left{
+        position: relative;
+        height: 50vh;
+
+        &::before{
+            content: "";
+            top: 0;
+            position: absolute;
+            border: double 3px transparent;
+            background-image: linear-gradient(#030303, #030303), linear-gradient(to top, transparent,transparent, get-color(primary-dark));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            border-radius: 1000px;
+            width: 500px;
+            aspect-ratio: 1;
+            transform:rotate(80deg) translateY(-2%) translateX(-10%);
+            z-index: auto;
+
+            @media screen and (max-width:get-break-point-value(lg)) {
+                width: 230px;
+                aspect-ratio: 1;
+                background-image: linear-gradient(#030303, #030303), linear-gradient(to top, transparent, get-color(primary-dark),transparent,);
+                transform:translateY(-2%) translateX(0%);
+            }
+        }
+
+
+        .support-left-box{
+            position: absolute;
+            z-index: 1;
+
+            img,.support-text{
+                background-color: #030303;
+            }
+
+            img{
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 130px;
+                }
+            }
+                    
+            &::before{
+                width: 200px;
+                aspect-ratio: 1;
+                position: absolute;
+                top: 0px;
+                z-index: -1;
+                content: "";
+                background-image: url(image-asset("tazhib.webp"));
+                background-size: contain;
+                transform:translateX(-17%)translateY(-35%) rotate(90deg) ;
+                background-repeat: no-repeat;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 100px;
+                }
+            }
+
+            &::after{
+                content: "";
+                width: 300px;
+                aspect-ratio: 1;
+                position: absolute;
+                z-index: -1;
+                bottom: 0px;
+                transform:translateY(69%)  ;
+                background-image: url(image-asset("tazhib.webp"));
+                background-size: contain;
+                background-repeat: no-repeat;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 150px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width:get-break-point-value(md)) {
+        .support-title{
+            color:get-color(primary-dark);
+            z-index: 7;
+        }
+    }
+}
+.img-top{
+    top: 0px;
+    left: 0px;
+    transform: translateY(-10%);
+    .top{
+        transform: rotateZ(90deg);
+    }
+}
+.img-bottom{
+    bottom: 0px;
+    left: 0px;
+    transform: translateY(28%);
+}
+.service-title{
+    transform: translateY(-50%);
+}
+.cursor{
+    width: 400px;
+    height: 400px;
+    transition: all 350ms ease-in-out;
+    & > div{
+        background-color: #000;
+        border: 20px solid #0D0D0D;
+        border-radius: 50%;
+        z-index: 9;
+        width: 400px;
+        height: 400px;
+    }
+    &::after
+    {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        border-radius: 1000px;
+        position: absolute;
+        z-index:8;
+        top:0px
+    }
+    &::before{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 1000px;
+        position: absolute;
+        background: conic-gradient(transparent 0%, get-color(primary) 15%, transparent 85%);
+        right: -3px;
+        top: 0px;
+    }
+    .arrow-image{
+        width: 65%;
+        filter: contrast(1.05) sepia(1) saturate(1.5) hue-rotate(-24deg) brightness(8);
+        transform: rotate(90deg) translateY(-55%); 
+    }
+}
+#footer{
+    height: 100vh;
+    min-height: fit-content;
+    overflow-y: hidden;
+    position: relative;
+    background-image: url(image-asset("background-hero.webp"));
+    background-repeat: no-repeat;
+    background-size: cover;
+    @media screen and (max-width : get-break-point-value(lg)) {
+        height: fit-content;
+    }
+
+    button p{
+        white-space: nowrap;
+    }
+    .footer-right{
+        .right-image{
+            min-width: 220px;
+            transform: scaleX(-1) translateX(25%) translateY(30%) rotateZ(-5deg);
+            animation: flower1 alternate ease-in-out 4s both infinite;
+        }
+        .left-image{
+            min-width: 310px;
+            transform: translateX(50%)translateY(17%) rotateZ(0deg);
+            animation: flower2 alternate ease-in-out 4s both infinite;
+            
+        }
+    }
+
+    .footer-md-left{
+        position: relative;
+
+        &::before{
+            content: "";
+            top: 0;
+            position: absolute;
+            border: double 3px transparent;
+            background-image: linear-gradient(#030303, #030303), linear-gradient(to top, transparent,transparent, get-color(primary-dark));
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            border-radius: 1000px;
+            width: 500px;
+            aspect-ratio: 1;
+            transform:rotate(80deg) translateY(-13%) translateX(-10%);
+            z-index: auto;
+
+            @media screen and (max-width:get-break-point-value(lg)) {
+                width: 330px;
+                aspect-ratio: 1;
+                background-image: linear-gradient(#030303, #030303), linear-gradient(to top, transparent, get-color(primary-dark),transparent,);
+                transform:translateY(-2%) translateX(0%);
+            }
+        }
+        .footer-left-box{
+            position: absolute;
+            z-index: 1;
+
+            img,.support-text{
+                background-color: #030303;
+            }
+
+            img{
+                @media screen and (max-width:get-break-point-value(md)) {
+                    width: 230px;
+                }
+            }
+                    
+            &::before{
+                width: 200px;
+                aspect-ratio: 1;
+                position: absolute;
+                top: 0px;
+                z-index: -1;
+                content: "";
+                background-image: url(image-asset("tazhib.webp"));
+                background-size: contain;
+                transform:translateX(-17%)translateY(-35%) rotate(90deg) ;
+                background-repeat: no-repeat;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 100px;
+                }
+            }
+            &::after{
+                content: "";
+                width: 300px;
+                aspect-ratio: 1;
+                position: absolute;
+                z-index: -1;
+                bottom: 0px;
+                transform:translateY(69%)  ;
+                background-image: url(image-asset("tazhib.webp"));
+                background-size: contain;
+                background-repeat: no-repeat;
+                @media screen and (max-width:get-break-point-value(lg)) {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    .line-height-paragraph{
+        line-height: 30px;
+    }
+
+    .policy{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .back-border-box img{
+        margin: 0px;
+    }
+
+    .footer-text-color{
+        transition: 200ms linear;
+        cursor: pointer;
+
+        &:hover{
+            color: get-color(footer-text-hover);
+        }
+    }
+}
+
+@keyframes flower1{
+    0%{
+        transform: scaleX(-1) translateX(25%) translateY(30%) rotateZ(-5deg);
+    }
+    50%{
+        transform: scaleX(-1) translateX(25%) translateY(30%)rotateZ(-5deg) ;
+    }
+    100%{
+        transform: scaleX(-1) translateX(30%) translateY(30%) ;
+    }
+}
+@keyframes flower2{
+    0%{
+        transform: translateX(50%)translateY(17%) ;
+    }
+    100%{
+        transform: translateX(45%)translateY(17%) ;
+    }
+}
+
+@media screen and (max-width:get-break-point-value(md)) {
+    .txt-md-justify{
+        text-align: justify;
+    }
+}
+
+.txt-justify{
+    text-align: justify;
+}
+
+.line-height-paragraph{
+    line-height: 30px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+section:not(#workSamples){
+    position: relative;
+
+    &::after{
+        content: "";
+        width: 100%;
+        height: 30%;
+        background-image: linear-gradient(transparent 10%, black 50%, transparent 90%);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: translateY(50%);
+        z-index: 6;
+    }
+
+    &:not(#hero), .box{
+        background-size:195% !important;
+        @media screen and (max-width : get-break-point-value(lg)) {
+            background-size:cover !important;
+            padding-bottom: 4rem;
+            height: fit-content;
+        }
+    }
+}
+
+#workSamples{
+    .line{
+        &::after{
+            content: "";
+            width: 100%;
+            height: 35%;
+            background-image: linear-gradient(transparent 10%, black 50%, transparent 90%);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform: translateY(50%);
+            z-index: 2;
+        }
+    }
+}
